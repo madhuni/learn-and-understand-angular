@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<header>
+    <meta charset="utf-8">
+    <title>Hello Angular Js</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</header>
+
+<body>
+    <div id="wrapper" class="container">
+
+        <div ng-controller="mainController">
+            <!--<h1 class="text-center">Hello {{ name + " " + lastName + " how are you ?"}}</h1>-->
+            <h1 class="text-center">Using Angular Directives and Two-way Binding</h1>
+            <br>
+            <label>What is your facebook handle?</label>
+            <input type="text" ng-model="handle">
+            <hr>
+            <h2>www.facebook.com/{{ lowercaseHandle() }}</h2>
+        </div>
+    </div>
+
+
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//code.angularjs.org/latest/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
