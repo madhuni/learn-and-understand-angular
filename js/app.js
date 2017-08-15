@@ -1,11 +1,14 @@
-/* Here we have created a angualar module and that is my "app" in global namespace */
+/* Here we have created a angualar module and that is my "app" in global namespace 
+* Now here is only one object in the Golbal Namespace and that is an Angular Module.
+* 
+*/
 var myApp = angular.module('myApp', []); // the array use to have list of dependecy modules
 
 myApp.controller('mainController', function ($scope, $log, $timeout, $filter) {
 
     /* 
      * "$scope" is the service provided by angular js. 
-     * We are doing the dependency injection by passing the $scope in 
+     * We are doing the dependency injection by passing the '$scope' in 
      * the function. 
      * Angular will read the name of service and will provide the corresponding
      * object.
@@ -15,7 +18,7 @@ myApp.controller('mainController', function ($scope, $log, $timeout, $filter) {
     $scope.lastName = "Madhuni";
 
     $timeout(function () {
-        $scope.name = "Sapna";
+        $scope.name = "Tejas";
 
     }, 3000);
 
