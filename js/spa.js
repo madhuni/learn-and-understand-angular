@@ -29,10 +29,66 @@ myApp.config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
 });
 
-myApp.controller('mainController', ['$scope', '$log', function ($scope, $log) {
+/*
+* Creating our own service (That will be Singleton - remember the concept)
+*
+* I can use my service like any other service using the DI
+*/
+
+myApp.service('myService', function () {
+    
+    var self = this;
+    
+    this.name = "Kanishka Mohan Madhuni";
+    
+    this.nameLength = function () {
+        return self.name.length;
+    };
+});
+
+/*
+* All services in the Angular JS are "SINGLETONS"
+* Singleton: There will be one & only one copy of an object.
+*/
+myApp.controller('mainController', ['$scope', '$log', 'myService', function ($scope, $log, myService) {
 	$log.log("mainController is now incharge");
+    
+    // $scope.name = "Main";
+    
+    /* Using the custom services */
+    $scope.name = myService.name;
+    
+    /* Here we have manually added the watcher for the 'name' property of the $scope 
+    * So it will update the value of 'name' property whenever it will change and
+    * accordingly will update the value of 'name' property in myService object.
+    * Now all the things on both pages will be in sync.
+    */
+    $scope.$watch('name', function () {
+        myService.name = $scope.name;
+    });
+    
+    // Understanding the concept of Singleton
+    
+    // $log.name = "this is attached to log";
+    // console.log($log);
+    
+    $log.log("My name is " + myService.name);
 }]);
 
-myApp.controller('secondController', ['$scope', '$log', function ($scope, $log) {
+myApp.controller('secondController', ['$scope', '$log', 'myService', function ($scope, $log, myService) {
 	$log.log("secondController is now inscharge");
+    
+    // $scope.name = "Second";
+    
+    $scope.name = myService.name;
+    
+    /* Adding the watch in the second controller as well */
+    $scope.$watch('name', function () {
+        myService.name = $scope.name;
+    });
+    
+    // $log.age = 24;
+    // console.log($log);
+    
+    $log.log("Length of my name is " + myService.nameLength());
 }]);
