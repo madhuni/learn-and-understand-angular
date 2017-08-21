@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Single Page Application</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/spa.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">AngularJS</a>
+                </div>
+            
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#/second">Second Page</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- When we use Routing in Angular JS, we don't mention 'ng-controller'
+    directive separately as 'ngRoute' module gives us the 'ng-view' directive.
+    Whever we are making Single Page Application, angular will see the route
+    config and the same page will be placed in the element having the 'ng-view' directive -->
+
+	<div ng-view class="container"></div>
+	<script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+	<script src="//code.angularjs.org/1.6.6/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.6.6/angular-route.min.js"></script>
+	<script src="js/spa.js"></script>
+</body>
+</html>
