@@ -1,0 +1,26 @@
+<!-- This template is also having the access to the $scope object present
+in the 'mainController' as it's the child of the 'main.html' page 
+
+This thing can be dangerous where we want to use our custom directives anywhere
+else in the application. So we have to isolate the scope of this view from the
+scope of the parent element.
+
+-->
+
+<a href="#" class="list-group-item">
+	
+	<!-- Passing the properties of the object -->
+    <h4 class="list-group-item-heading">{{ personName }}</h4>
+    <p class="list-group-item-text">{{ personAddress }}</p>
+    
+    <!-- Passing the whole object and then accessing the properties -->
+    <h4 class="list-group-item-heading">{{ personObject.name }}</h4>
+    <p class="list-group-item-text">{{ personObject.address }}</p>
+
+    <!-- Passing the function 
+	Inside the function, insted of passing the pure parameter,
+	I will have to pass an object map which will
+	map the passed argument to the original one
+    -->
+    <p>{{ formattedAddress({aperson: personObject}) }}</p>
+</a>

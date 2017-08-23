@@ -3,3 +3,31 @@
 <hr>
 <input type="text" ng-model="name" >
 <h3 class="text-left">{{ name }}</h3>
+
+<div class="list-group">
+    <!-- I will use my custom directive here and will normalize the name
+(searchResult -> search-result) of the element so that Angular JS can look into my directive and replace the content with the HTML defined in Template 
+
+These styles are called 'Directive Declaration Style' 
+-->
+	<!-- I can now send the properties of the $scope on the mainController through
+	custom attribute -->
+    <search-result person-name="{{ name }}" person-address="{{ address }}"></search-result>
+    
+    <!-- Instead of using custom element name I can also use custom 
+attribute to tell Angular JS that I am going to use a custom
+directive here -->
+    
+    <!-- I can also send the whole object instead of passing properties alone.
+    I will then use the same concept of custom attribute -->
+    <div search-result person-object="person"></div>
+    
+    <!-- Apart from above two approaches we used custom ELEMENT and 
+custom CLASS we can also have two different approaches -->
+    
+    <!-- Using 'class-name' -->
+    <div class="search-result" person-object="person" formatted-address="formattedAddress(aperson)"></div>
+    
+    <!-- Using 'comments' -->
+    <!-- directive: search-result -->
+</div>
