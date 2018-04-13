@@ -1,0 +1,2 @@
+For a large application, we can have separate folders for my Routes, for my Custom directives,
+for my templates and I can inject them later in the main HTML file.
